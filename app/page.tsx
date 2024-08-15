@@ -11,45 +11,21 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center,
+  Center, Grid, GridItem,
 } from '@chakra-ui/react'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import MatchCard from "@/app/components/match-card";
 
-interface Props {
-  children: React.ReactNode
-}
-
-const NavLink = (props: Props) => {
-  const { children } = props
-
-  return (
-    <Box
-      as="a"
-      px={2}
-      py={1}
-      rounded={'md'}
-      _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
-      }}
-      href={'#'}>
-      {children}
-    </Box>
-  )
-}
-
-export default function Nav() {
+function Nav() {
   const { colorMode, toggleColorMode } = useColorMode()
-  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Logo</Box>
+          <Box><Text fontSize='2xl'>찌리릿</Text> </Box>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -94,4 +70,48 @@ export default function Nav() {
       </Box>
     </>
   )
+}
+
+export default function Page() {
+    return (
+        <>
+          <Nav />
+          <Grid
+              templateColumns={{
+                base: 'repeat(1, 1fr)',  // 모바일: 1칸
+                md: 'repeat(2, 1fr)',    // 태블릿: 2칸
+                lg: 'repeat(3, 1fr)'     // PC: 3칸
+              }}
+              gap={6} // 그리드 아이템 사이의 간격 설정
+          >
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+              <GridItem>
+                  <MatchCard/>
+              </GridItem>
+          </Grid>
+        </>
+    )
 }
