@@ -25,7 +25,34 @@ function Nav() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box><Text fontSize='2xl'>찌리릿</Text> </Box>
+          <Box>
+              <Text
+                  textTransform={'uppercase'}
+                  fontWeight={400}
+                  fontSize={'2em'}
+                  letterSpacing={1.1}>
+                  찌리릿
+              </Text>
+          </Box>
+
+            <Flex
+                w={{ base: 'full', md: 'auto' }}
+                alignItems={'center'}
+                justifyContent={'space-around'}
+            >
+                <Button>
+                    랭킹
+                </Button>
+                <Button>
+                    검색
+                </Button>
+                <Button>
+                    제작
+                </Button>
+                <Button>
+                    사용법
+                </Button>
+            </Flex>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
